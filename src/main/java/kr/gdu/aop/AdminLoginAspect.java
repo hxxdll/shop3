@@ -25,5 +25,6 @@ public class AdminLoginAspect {
 			("[adminCheck]관리자만 가능한 거래 입니다","../user/mypage?userid="+loginUser.getUserid());
 		}
 		return joinPoint.proceed();
+		//주석주석주석
 	}
 }
