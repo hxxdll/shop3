@@ -10,7 +10,8 @@ jobs:
   deploy:
     name: Deploy to EC2 with Docker	#Job의 이름
     runs-on: ubuntu-latest	#배포 서버의 실행 환경. 우분투 최신버전
-	steps:
+
+  steps:
     - name: Checkout source code
       uses: actions/checkout@v3
     - name: Set up Docker Buildx
