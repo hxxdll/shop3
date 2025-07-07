@@ -19,7 +19,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker buildx build --platform linux/amd64 -t gdj90/shop3:latest -t gdj90/shop3:lastest . --load
+          docker buildx build --platform linux/amd64 -t gdj90/shop3:latest . --load
 
       - name: Save Docker image as tar
         run: |
@@ -37,14 +37,14 @@ jobs:
           overwrite: true
           strip_components: 0
 
-      - name: Run docker-compose on EC2
+      - name: Run docker compose on EC2
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_KEY }}
           script: |
-            cd /home/ubuntn
+            cd /home/ubuntu
             docker compose down || true
             docker rmi gdj90/shop3:latest || true
             docker load -i shop3.tar
