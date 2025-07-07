@@ -1,14 +1,16 @@
 #워크 플로우 이름 Action에 표시되는 이름
 name: Docker Deploy to EC2
+# 실행 조건. main 브랜치에 push 발생시 jobs 실행
 on:
   push:
     branches:
       - main
+# 실행할 기능 설정
 jobs:
   deploy:
-    name: Deploy to EC2 with Docker
-    runs-on: ubuntu-latest
-    steps:
+    name: Deploy to EC2 with Docker	#Job의 이름
+    runs-on: ubuntu-latest	#배포 서버의 실행 환경. 우분투 최신버전
+	steps:
     - name: Checkout source code
       uses: actions/checkout@v3
     - name: Set up Docker Buildx
